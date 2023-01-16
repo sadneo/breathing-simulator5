@@ -1,0 +1,11 @@
+[package]
+name = "sadneo/breathing-simulator"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+Loader = "sadneo/loader@0.2.4"
+Roact = "roblox/roact@1.4.4"
+Signal = "stravant/goodsignal@0.2.1"
+ProfileService = "brittonfischer/profileservice@2.1.5"
