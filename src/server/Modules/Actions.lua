@@ -4,7 +4,12 @@ Actions.Breathe = function(data, action)
 	data.Air += air
 	return data
 end
-Actions.Sell = function(data, action) end
+Actions.Sell = function(data, action)
+	local air = math.floor(data.Air / 2)
+	data.Air -= air
+	data.Money += air * data.Stats.ExchangeRate
+	return data
+end
 
 Actions.AddItem = function(data, action) end
 Actions.RemoveItem = function(data, action) end
