@@ -78,8 +78,9 @@ end
 function DataService.ChangeData(player, actionName, actionData)
 	local data = DataService.Profiles[player].Data
 	local newData = Actions[actionName](data, actionData)
-	player.Profiles[player].Data = newData
+	DataService.Profiles[player].Data = newData
 	ReplicateData:FireClient(player, newData)
+	print(player, newData)
 	return newData
 end
 

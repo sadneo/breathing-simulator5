@@ -1,5 +1,9 @@
 local Actions = {}
-Actions.Breathe = function(data, action) end
+Actions.Breathe = function(data, action)
+	local air = 1 -- TODO: make this use the equipped lung's ItemData instead
+	data.Air += air
+	return data
+end
 Actions.Sell = function(data, action) end
 
 Actions.AddItem = function(data, action) end
