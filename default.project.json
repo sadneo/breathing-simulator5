@@ -18,11 +18,11 @@
       "Loads": {
         "$path": "src/shared/Loads"
       },
-      "Components": {
-        "$path": "src/shared/Loads"
-      },
       "Modules": {
-        "$path": "src/shared/Loads"
+        "$path": "src/shared/Modules"
+      },
+      "Components": {
+        "$path": "src/shared/Components"
       },
       "Remotes": {
         "$className": "Folder",
