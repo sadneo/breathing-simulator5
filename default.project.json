@@ -35,6 +35,12 @@
         "Breathe": {
           "$className": "RemoteEvent"
         }
+      },
+      "Signals": {
+        "$className": "Folder",
+        "SelectContainer": {
+          "$className": "BindableEvent"
+        }
       }
     },
     "Workspace": {
