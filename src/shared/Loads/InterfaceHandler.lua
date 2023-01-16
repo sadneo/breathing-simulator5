@@ -14,7 +14,7 @@ function InterfaceHandler.Start()
 			{
 				name = "Inventory",
 				mainText = "Items",
-				bottomText = "C",
+				bottomText = "C", -- TODO: make these keybinds automatic
 				onClick = function()
 					SelectContainer:Fire("Inventory")
 				end,
