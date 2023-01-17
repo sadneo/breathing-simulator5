@@ -15,7 +15,7 @@ local KeybindItem = function(props)
 			TextLabel = Roact.createElement("TextLabel", {
 				Text = bottomText,
 
-				Font = Enum.Font.Gotham,
+				Font = Enum.Font.Roboto,
 				TextColor3 = Color3.fromRGB(0, 0, 0),
 				TextSize = 14,
 				AnchorPoint = Vector2.new(0.5, 0.5),

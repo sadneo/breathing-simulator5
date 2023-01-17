@@ -16,7 +16,7 @@ local Item = function(props)
 			Text = text,
 			[Roact.Event.MouseButton1Click] = onClick,
 
-			Font = Enum.Font.Gotham,
+			Font = Enum.Font.Roboto,
 			TextColor3 = Color3.fromRGB(0, 0, 0),
 			TextSize = 14,
 			BackgroundColor3 = Color3.fromRGB(255, 255, 255),
