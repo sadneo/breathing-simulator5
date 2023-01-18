@@ -18,4 +18,8 @@ function DataManager.Init()
 	end)
 end
 
+function DataManager.GetData()
+	return DataManager.Data
+end
+
 return DataManager
