@@ -28,6 +28,16 @@ local Container = function(props)
 			ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
 			Color = Color3.fromRGB(255, 255, 255),
 		}),
+		UIPadding = Roact.createElement("UIPadding", {
+			PaddingBottom = UDim.new(0, 5),
+			PaddingLeft = UDim.new(0, 5),
+			PaddingRight = UDim.new(0, 5),
+			PaddingTop = UDim.new(0, 5),
+		}),
+		UIGridLayout = Roact.createElement("UIGridLayout", {
+			CellSize = UDim2.fromOffset(50, 50),
+			SortOrder = Enum.SortOrder.LayoutOrder,
+		}),
 	})
 end
 
