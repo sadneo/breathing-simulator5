@@ -1,7 +1,7 @@
 local ItemModule = {}
 ItemModule.Context = {
 	Lung = {
-		Equipped = { "Unequip" },
+		Equipment = { "Unequip" },
 		Inventory = { "Equip" },
 		Shop = { "Buy" },
 	},
@@ -14,7 +14,7 @@ ItemModule.Item = {
 			Air = 1,
 		},
 	},
-	[1] = {
+	[2] = {
 		Type = "Lung",
 		Description = "Some better lungs",
 		Stats = {
