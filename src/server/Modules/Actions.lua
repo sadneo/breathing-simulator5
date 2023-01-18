@@ -1,6 +1,10 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local ItemModule = require(ReplicatedStorage.Modules.ItemModule)
+
 local Actions = {}
 Actions.Breathe = function(data, action)
-	local air = 1 -- TODO: make this use the equipped lung's ItemData instead
+	local air = ItemModule[data.Equipment.Lung.Id].Stats.Air
 	data.Air += air
 	return data
 end
