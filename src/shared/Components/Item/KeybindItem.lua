@@ -12,7 +12,7 @@ local KeybindItem = function(props)
 	return Roact.createElement(Item, {
 		text = mainText,
 		onClick = onClick,
-		layoutOrder = props.layoutOrder,
+		layoutOrder = layoutOrder,
 		children = {
 			TextLabel = Roact.createElement("TextLabel", {
 				Text = bottomText,
