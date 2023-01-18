@@ -17,7 +17,7 @@ local PROFILE_TEMPLATE = {
 		InventorySize = 20,
 	},
 
-	Equipped = {
+	Equipment = {
 		Lung = { Id = 1 },
 		Slot1 = 0,
 		Slot2 = 0,
