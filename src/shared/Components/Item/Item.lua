@@ -5,11 +5,13 @@ local Roact = require(ReplicatedStorage.Packages.Roact)
 local Item = function(props)
 	local size = props.size or UDim2.fromOffset(50, 50)
 	local text = props.text
+	local layoutOrder = props.layoutOrder
 	local onClick = props.onClick
 	local children = props.children
 
 	return Roact.createElement("Frame", {
 		Size = size,
+		LayoutOrder = layoutOrder,
 
 		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 	}, {
