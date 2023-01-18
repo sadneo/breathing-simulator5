@@ -6,11 +6,13 @@ local Item = require(ReplicatedStorage.Components.Item.Item)
 local KeybindItem = function(props)
 	local mainText = props.mainText
 	local bottomText = props.bottomText
+	local layoutOrder = props.layoutOrder
 	local onClick = props.onClick
 
 	return Roact.createElement(Item, {
 		text = mainText,
 		onClick = onClick,
+		layoutOrder = props.layoutOrder,
 		children = {
 			TextLabel = Roact.createElement("TextLabel", {
 				Text = bottomText,
