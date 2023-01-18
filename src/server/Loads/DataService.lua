@@ -24,7 +24,10 @@ local PROFILE_TEMPLATE = {
 		Slot3 = 0,
 		Slot4 = 0,
 	},
-	Inventory = {},
+	Inventory = {
+		{ Id = 1 },
+		{ Id = 2 },
+	},
 }
 
 local DataService = {}
