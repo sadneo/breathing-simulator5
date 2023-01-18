@@ -6,7 +6,7 @@ local Container = function(props)
 	local anchorPoint = props.anchorPoint
 	local position = props.position
 	local size = props.size
-	local scrollingEnabled = props.scrollingEnabled
+	local scrollingEnabled = props.scrollingEnabled or false
 	local children = props.children
 
 	return Roact.createElement("ScrollingFrame", {
