@@ -1,6 +1,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Roact = require(ReplicatedStorage.Packages.Roact)
+local Container = require(ReplicatedStorage.Components.Base.Container)
 local SelectContainer = ReplicatedStorage.Signals.SelectContainer
 
 local MainContainer = Roact.Component:extend("MainContainer")
@@ -11,6 +12,7 @@ end
 
 function MainContainer:didMount()
 	SelectContainer.Event:Connect(function(name)
+		print(self.props.name == name)
 		self:setState({
 			visible = name == self.props.name and not self.state.visible or false,
 		})
@@ -24,7 +26,7 @@ function MainContainer:render()
 	local children = self.props.children
 
 	print(self.state.visible)
-	return Roact.createElement("Frame", {
+	return Roact.createElement(Container, {
 		anchorPoint = anchorPoint,
 		position = position,
 		size = size,
