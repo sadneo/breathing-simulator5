@@ -4,7 +4,7 @@ local ItemModule = require(ReplicatedStorage.Modules.ItemModule)
 
 local Actions = {}
 Actions.Breathe = function(data, action)
-	local air = ItemModule[data.Equipment.Lung.Id].Stats.Air
+	local air = ItemModule.Item[data.Equipment.Lung.Id].Stats.Air
 	data.Air += air
 	return data
 end

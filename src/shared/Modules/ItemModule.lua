@@ -1,4 +1,12 @@
-local Items = {
+local ItemModule = {}
+ItemModule.Context = {
+	Lung = {
+		Equipped = "Unequip",
+		Inventory = "Equip",
+		Shop = "Buy",
+	},
+}
+ItemModule.Item = {
 	[1] = {
 		Type = "Lung",
 		Description = "Your lungs",
@@ -15,4 +23,4 @@ local Items = {
 	},
 }
 
-return Items
+return ItemModule
