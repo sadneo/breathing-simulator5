@@ -37,7 +37,6 @@ local DetailsFrame = function(props)
 				text = action,
 				layoutOrder = index,
 				onClick = function()
-					print(action, item, location)
 					DoItemAction:FireServer(action, item, location)
 				end,
 			})
