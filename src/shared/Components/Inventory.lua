@@ -15,8 +15,10 @@ function Inventory:init(props)
 	self:setState({
 		selectedItem = nil,
 		selectedCategory = nil,
-		equipment = props.equipment,
-		inventory = props.inventory,
+		locations = {
+			Equipment = props.equipment,
+			Inventory = props.inventory,
+		},
 	})
 end
 
@@ -24,8 +26,10 @@ function Inventory:didMount()
 	local DataManager = Loader.GetLoad("DataManager")
 	DataManager.DataUpdated:Connect(function(data)
 		self:setState({
-			equipment = data.Equipment,
-			inventory = data.Inventory,
+			locations = {
+				Equipment = data.Equipment,
+				Inventory = data.Inventory,
+			},
 		})
 	end)
 end
@@ -33,12 +37,10 @@ end
 function Inventory:render()
 	local selectedItem = nil
 	if self.state.selectedItem then
-		selectedItem = self.state[self.state.selectedCategory][self.state.selectedItem]
+		selectedItem = self.state.locations[self.state.selectedCategory][self.state.selectedItem]
 	end
 
-	local context = (self.state.selectedCategory == "equipment" and "Equipment")
-		or (self.state.selectedCategory == "inventory" and "Inventory")
-		or "Nothing"
+	local context = self.state.selectedCategory or "Nothing"
 
 	local function selectItem(category, slot)
 		self:setState({
@@ -49,7 +51,7 @@ function Inventory:render()
 
 	local equipment = {}
 	for index, slot in EQUIPMENT_ORDER do
-		local item = self.state.equipment[slot]
+		local item = self.state.locations.Equipment[slot]
 		if type(item) ~= "table" then
 			equipment[slot] = Roact.createElement(Item, { text = "nothing", layoutOrder = index })
 			continue
@@ -59,17 +61,17 @@ function Inventory:render()
 			text = item.Id,
 			layoutOrder = index,
 			onClick = function()
-				selectItem("equipment", slot)
+				selectItem("Equipment", slot)
 			end,
 		})
 	end
 
 	local inventory = {}
-	for slot, item in self.state.inventory do
+	for slot, item in self.state.locations.Inventory do
 		inventory[slot] = Roact.createElement(Item, {
 			text = item.Id,
 			onClick = function()
-				selectItem("inventory", slot)
+				selectItem("Inventory", slot)
 			end,
 		})
 	end
