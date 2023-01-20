@@ -58,8 +58,6 @@ Actions.EquipItem = function(data, action)
 	local index = action.index
 
 	if not data.Inventory[index] then
-		print("Debug 8=====>")
-		print(data.Inventory)
 		error(string.format("Actions.EquipItem requires a valid equipment index to equip, it was passed %i", index))
 		return
 	end
@@ -93,8 +91,6 @@ Actions.EquipItem = function(data, action)
 	end
 
 	table.remove(data.Inventory, index)
-	print(item)
-	print(avaliableSlot)
 	data.Equipment[avaliableSlot] = item
 
 	return data
