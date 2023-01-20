@@ -95,10 +95,7 @@ function Inventory:render()
 		size = UDim2.fromOffset(150, 300),
 		item = selectedItem,
 		context = context,
-		location = {
-			Category = self.state.selectedCategory,
-			Item = self.state.selectedItem,
-		},
+		location = self.state.selectedItem,
 	})
 
 	return Roact.createElement(MainContainer, {

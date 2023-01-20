@@ -35,7 +35,13 @@
         "Breathe": {
           "$className": "RemoteEvent"
         },
-        "DoItemAction": {
+        "EquipItem": {
+          "$className": "RemoteEvent"
+        },
+        "UnequipItem": {
+          "$className": "RemoteEvent"
+        },
+        "BuyItem": {
           "$className": "RemoteEvent"
         }
       },

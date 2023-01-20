@@ -5,7 +5,6 @@ local Container = require(ReplicatedStorage.Components.Base.Container)
 local Panel = require(ReplicatedStorage.Components.Base.Panel)
 local Item = require(ReplicatedStorage.Components.Item.Item)
 local ItemModule = require(ReplicatedStorage.Modules.ItemModule)
-local DoItemAction = ReplicatedStorage.Remotes.DoItemAction
 
 local DEFAULT_TEXT = "nothing"
 local BUTTON_SIZE = 50
@@ -37,7 +36,7 @@ local DetailsFrame = function(props)
 				text = action,
 				layoutOrder = index,
 				onClick = function()
-					DoItemAction:FireServer(action, item, location)
+					ItemModule.ClientActions[action](location)
 				end,
 			})
 		end
