@@ -13,11 +13,11 @@ ItemModule.Context = {
 	},
 }
 ItemModule.ClientActions = {
-	Equip = function(itemIndex)
-		EquipItem:FireServer(itemIndex)
+	Equip = function(index)
+		EquipItem:FireServer(index)
 	end,
-	Unequip = function(itemSlot)
-		UnequipItem:FireServer(itemSlot)
+	Unequip = function(slot)
+		UnequipItem:FireServer(slot)
 	end,
 	Buy = function(listingIndex) -- later, also send in the shop that you're buying from
 		BuyItem:FireServer(listingIndex)
