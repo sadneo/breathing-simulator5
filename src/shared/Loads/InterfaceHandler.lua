@@ -6,6 +6,7 @@ local Roact = require(ReplicatedStorage.Packages.Roact)
 local ScreenGui = require(ReplicatedStorage.Components.ScreenGui)
 local MenuMenu = require(ReplicatedStorage.Components.MenuMenu)
 local Inventory = require(ReplicatedStorage.Components.Inventory)
+local Shop = require(ReplicatedStorage.Components.Shop)
 local SelectContainer = ReplicatedStorage.Signals.SelectContainer
 
 local InterfaceHandler = {}
@@ -17,6 +18,9 @@ function InterfaceHandler.Start()
 	children.Inventory = Roact.createElement(Inventory, {
 		equipment = data.Equipment,
 		inventory = data.Inventory,
+	})
+	children.Shop = Roact.createElement(Shop, {
+		shop = "Shop",
 	})
 	children.MenuMenu = Roact.createElement(MenuMenu, {
 		buttons = {
@@ -33,7 +37,7 @@ function InterfaceHandler.Start()
 				mainText = "Shop",
 				bottomText = "V",
 				onClick = function()
-					SelectContainer:Fire("Inventory")
+					SelectContainer:Fire("Shop")
 				end,
 			},
 		},
