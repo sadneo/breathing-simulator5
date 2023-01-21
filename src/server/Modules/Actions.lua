@@ -21,7 +21,7 @@ Actions.AddItem = function(data, action)
 
 	if not ItemModule.Item[id] then
 		error(string.format("Actions.AddItem needs a valid item index, it was passed %i.", id))
-		return
+		return data
 	end
 	table.insert(data.Inventory, {
 		Id = id,
@@ -35,7 +35,7 @@ Actions.RemoveItem = function(data, action)
 	local VALID_LOCATIONS = { "Equipment", "Inventory" }
 	if not table.find(VALID_LOCATIONS, location) then
 		error(string.format("Actions.RemoveItem needs a valid item location, it was passed %s.", location))
-		return
+		return data
 	end
 
 	data[location][index] = nil
@@ -46,7 +46,7 @@ Actions.UnequipItem = function(data, action)
 
 	if not data.Equipment[slot] then
 		error(string.format("Actions.UnequipItem requires a valid equipment slot to unequip, it was passed %s", slot))
-		return
+		return data
 	end
 
 	local item = data.Equipment[slot]
@@ -59,7 +59,7 @@ Actions.EquipItem = function(data, action)
 
 	if not data.Inventory[index] then
 		error(string.format("Actions.EquipItem requires a valid equipment index to equip, it was passed %i", index))
-		return
+		return data
 	end
 
 	local TYPED_SLOTS = {
@@ -87,7 +87,7 @@ Actions.EquipItem = function(data, action)
 	end
 
 	if not avaliableSlot then
-		return
+		return data
 	end
 
 	table.remove(data.Inventory, index)
@@ -100,13 +100,13 @@ Actions.BuyItem = function(data, action)
 
 	if not ShopModule.Shop[listingIndex] then
 		error(string.format("Actions.BuyItem needs a valid shop index, it was passed %i.", listingIndex))
-		return
+		return data
 	end
 
 	local listing = ShopModule.Shop[listingIndex]
 	local price = listing.Price
 	if data.Money < price then
-		return
+		return data
 	end
 
 	data.Money -= price
