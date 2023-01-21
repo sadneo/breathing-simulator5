@@ -23,6 +23,11 @@ Actions.AddItem = function(data, action)
 		error(string.format("Actions.AddItem needs a valid item index, it was passed %i.", id))
 		return data
 	end
+
+	if #data.Inventory >= data.Stats.InventorySize then
+		return data
+	end
+
 	table.insert(data.Inventory, {
 		Id = id,
 	})
@@ -51,6 +56,11 @@ Actions.UnequipItem = function(data, action)
 
 	local item = data.Equipment[slot]
 	data.Equipment[slot] = nil
+
+	if #data.Inventory >= data.Stats.InventorySize then
+		return data, false
+	end
+
 	table.insert(data.Inventory, item)
 	return data
 end
@@ -73,10 +83,13 @@ Actions.EquipItem = function(data, action)
 	local avaliableSlot
 	if #slots == 1 then
 		local slot = slots[1]
-		if data.Equipment[slot] then
-			Actions.UnequipItem(data, { slot = slot })
-		end
 		avaliableSlot = slot
+		if data.Equipment[slot] then
+			local _data, success = Actions.UnequipItem(data, { slot = slot })
+			if success == false then
+				avaliableSlot = nil
+			end
+		end
 	else
 		for _, slot in slots do
 			if not data.Equipment[slot] then
@@ -105,7 +118,7 @@ Actions.BuyItem = function(data, action)
 
 	local listing = ShopModule.Shop[listingIndex]
 	local price = listing.Price
-	if data.Money < price then
+	if data.Money < price or #data.Inventory >= data.Stats.InventorySize then
 		return data
 	end
 
